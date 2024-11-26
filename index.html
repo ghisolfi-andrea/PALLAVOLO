@@ -13,6 +13,7 @@
     </div>
 
     <div id="app">
+        <!-- Schermata iniziale per inserire i nomi delle squadre -->
         <div id="team-names">
             <h1>Inserisci i nomi delle squadre</h1>
             <div class="input-container">
@@ -22,13 +23,14 @@
             <button id="start-game">Inizia la partita</button>
         </div>
 
+        <!-- Schermata per inserire i punteggi -->
         <div id="score-input" style="display: none;">
-            <button id="back-team-names">Torna indietro</button>
+            <button id="back-team-names" class="top-right">Torna indietro</button>
             <h2>Inserisci i punteggi</h2>
             <div class="team-input">
                 <h3 id="team1-name-display"></h3>
                 <div class="input-container">
-                    <input type="number" id="team1-score" placeholder="Punteggio" />
+                    <input type="text" id="team1-score" placeholder="Punteggio" list="team-suggestions" />
                     <input type="number" id="team1-penalty" placeholder="Penalità" />
                 </div>
                 <label>
@@ -38,22 +40,24 @@
             <div class="team-input">
                 <h3 id="team2-name-display"></h3>
                 <div class="input-container">
-                    <input type="number" id="team2-score" placeholder="Punteggio" />
+                    <input type="text" id="team2-score" placeholder="Punteggio" list="team-suggestions" />
                     <input type="number" id="team2-penalty" placeholder="Penalità" />
                 </div>
                 <label>
                     <input type="checkbox" id="team2-insufficient" /> Giocatori non sufficienti per giocare
                 </label>
             </div>
+            <datalist id="team-suggestions"></datalist>
             <button id="submit-score">Invia Punteggio</button>
             <button id="view-summary">Resoconto</button>
         </div>
 
+        <!-- Schermata del resoconto -->
         <div id="summary" style="display: none;">
-            <button id="back-score-input">Torna indietro</button>
+            <button id="back-score-input" class="top-right">Torna indietro</button>
             <h2>Resoconto Partite</h2>
             <input type="text" id="search" placeholder="Cerca squadra" />
-            <table>
+            <table class="full-width">
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -72,5 +76,12 @@
     </div>
     
     <script src="script.js"></script>
+
+    <script>
+        const BACKEND_URL = 'https://<https://orange-broccoli-jv6w4qw9xwrcpj7g.github.dev/>/api/scores'; // URL del backend
+    </script>
+    <button id="reload-data">Ricarica Resoconto</button>
+    
+
 </body>
 </html>
