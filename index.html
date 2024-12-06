@@ -7,57 +7,59 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="cookie-consent" class="cookie-consent">
+    <!-- Notifica cookie -->
+    <div id="cookie-consent" class="cookie-consent" aria-label="Consenso Cookie">
         <p>Utilizziamo i cookie per migliorare la tua esperienza. <a href="#">Leggi di più</a>.</p>
-        <button id="accept-cookies">Accetta</button>
+        <button id="accept-cookies" aria-label="Accetta i cookie">Accetta</button>
     </div>
 
-    <div id="app">
-        <!-- Schermata iniziale per inserire i nomi delle squadre -->
-        <div id="team-names">
+    <!-- Contenitore principale -->
+    <main id="app">
+        <!-- Schermata iniziale -->
+        <section id="team-names">
             <h1>Inserisci i nomi delle squadre</h1>
             <div class="input-container">
-                <input type="text" id="team1-name" placeholder="Nome squadra 1">
-                <input type="text" id="team2-name" placeholder="Nome squadra 2">
+                <input type="text" id="team1-name" placeholder="Nome squadra 1" aria-label="Nome squadra 1">
+                <input type="text" id="team2-name" placeholder="Nome squadra 2" aria-label="Nome squadra 2">
             </div>
-            <button id="start-game">Inizia la partita</button>
-        </div>
+            <button id="start-game" aria-label="Inizia la partita">Inizia la partita</button>
+        </section>
 
-        <!-- Schermata per inserire i punteggi -->
-        <div id="score-input" style="display: none;">
-            <button id="back-team-names" class="top-right">Torna indietro</button>
+        <!-- Inserimento punteggi -->
+        <section id="score-input" style="display: none;">
+            <button id="back-team-names" class="top-right" aria-label="Torna indietro">Torna indietro</button>
             <h2>Inserisci i punteggi</h2>
             <div class="team-input">
                 <h3 id="team1-name-display"></h3>
                 <div class="input-container">
-                    <input type="text" id="team1-score" placeholder="Punteggio" list="team-suggestions" />
-                    <input type="number" id="team1-penalty" placeholder="Penalità" />
+                    <input type="text" id="team1-score" placeholder="Punteggio" list="team-suggestions" aria-label="Punteggio squadra 1" />
+                    <input type="number" id="team1-penalty" placeholder="Penalità" aria-label="Penalità squadra 1" />
                 </div>
-                <label>
+                <label for="team1-insufficient">
                     <input type="checkbox" id="team1-insufficient" /> Giocatori non sufficienti per giocare
                 </label>
             </div>
             <div class="team-input">
                 <h3 id="team2-name-display"></h3>
                 <div class="input-container">
-                    <input type="text" id="team2-score" placeholder="Punteggio" list="team-suggestions" />
-                    <input type="number" id="team2-penalty" placeholder="Penalità" />
+                    <input type="text" id="team2-score" placeholder="Punteggio" list="team-suggestions" aria-label="Punteggio squadra 2" />
+                    <input type="number" id="team2-penalty" placeholder="Penalità" aria-label="Penalità squadra 2" />
                 </div>
-                <label>
+                <label for="team2-insufficient">
                     <input type="checkbox" id="team2-insufficient" /> Giocatori non sufficienti per giocare
                 </label>
             </div>
             <datalist id="team-suggestions"></datalist>
-            <button id="submit-score">Invia Punteggio</button>
-            <button id="view-summary">Resoconto</button>
-        </div>
+            <button id="submit-score" aria-label="Invia punteggi">Invia Punteggio</button>
+            <button id="view-summary" aria-label="Visualizza resoconto">Resoconto</button>
+        </section>
 
-        <!-- Schermata del resoconto -->
-        <div id="summary" style="display: none;">
-            <button id="back-score-input" class="top-right">Torna indietro</button>
+        <!-- Resoconto partite -->
+        <section id="summary" style="display: none;">
+            <button id="back-score-input" class="top-right" aria-label="Torna indietro">Torna indietro</button>
             <h2>Resoconto Partite</h2>
-            <input type="text" id="search" placeholder="Cerca squadra" />
-            <table class="full-width">
+            <input type="text" id="search" placeholder="Cerca squadra" aria-label="Cerca squadra" />
+            <table class="full-width" aria-label="Tabella resoconto">
                 <thead>
                     <tr>
                         <th>Data</th>
@@ -71,17 +73,15 @@
                 </thead>
                 <tbody id="summary-body"></tbody>
             </table>
-            <button id="delete-all">Elimina Tutto</button>
-        </div>
-    </div>
-    
+            <button id="delete-all" aria-label="Elimina tutto">Elimina Tutto</button>
+            <button id="reload-data" aria-label="Ricarica resoconto">Ricarica Resoconto</button>
+        </section>
+    </main>
+
+    <!-- Script -->
     <script src="script.js"></script>
-
     <script>
-        const BACKEND_URL = 'https://<https://orange-broccoli-jv6w4qw9xwrcpj7g.github.dev/>/api/scores'; // URL del backend
+        const BACKEND_URL = 'https://example.github.io/api/scores'; // URL backend
     </script>
-    <button id="reload-data">Ricarica Resoconto</button>
-    
-
 </body>
 </html>
